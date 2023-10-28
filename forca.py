@@ -34,7 +34,7 @@ while True:
          
     #menu do jogo, onde cada opção contem o caminho das listas de palavras de acordo com o tema
     listaTemas = {'1-Jogos':'temas/jogos.txt','2-Filmes':'temas/filmes.txt','3-Músicas':'temas/musicas.txt',
-                  '4-Tecnologia':'temas/tecnologia.txt','5-Esportes':'temas/esportes.txt','6-Assuntos Gerais':'temas/geral.txt'}
+                  '4-Tecnologia':'temas/tecnologia.txt','5-Esportes':'temas/esportes.txt','6-Aleatório': ''}
     for i in listaTemas.keys():
         print(espaco(),i.upper(),espaco())
 
@@ -51,7 +51,7 @@ while True:
     if resposta == 5:
         arquivo = listaTemas["5-Esportes"]
     if resposta == 6:
-        arquivo = listaTemas["6-Assuntos Gerais"]
+        arquivo = choice(list(listaTemas.values()))
 
     palavras = []
 
@@ -73,8 +73,12 @@ while True:
             if letra in letrasC:
                 pista += letra
             #caso não contenha, aparece o _ no lugar da letra
-            else:
+            if letra not in letrasC and letra != " ":
                 pista += "_ "
+            if letra == ":":
+                pista += ":"
+            else:
+                pista += " "
         print(pista)
 
         #quando não tiver mais nenhum _ , quer dizer que o usuário acertou a palavra
@@ -118,3 +122,10 @@ while True:
         input('Aperte "Enter" para sair!')
         break
     continue
+
+# TO DO:
+# DICAS
+# RECONHECER PALAVRAS COM ACENTO NOS CHUTES
+# FAZER TELINHA
+# RECORDES
+# MUSICAS
